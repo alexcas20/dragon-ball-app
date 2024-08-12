@@ -2,19 +2,19 @@ import React from "react";
 
 export const CardCharacter = ({ character }) => {
   return (
-    <div className="flex flex-col p-4 bg-sky-200 bg-opacity-60 rounded-xl relative mb-[130px] cursor-pointer group md:h-[240px] md:mb-[80px] md:flex-row ">
-      <div className="absolute top-0 -translate-y-1/4  md:-translate-y-1/3 md:translate-x-[14px]">
+    <div className="flex p-4 bg-orange-500 bg-opacity-80 rounded-xl relative mb-[130px] cursor-pointer group md:mb-[150px]  ">
+      <div className="absolute top-0 -translate-y-1/4 ">
         {character.image.includes("bulma") ||
         character.image.includes("goku") ||
         character.image.includes("vegeta") ? (
           <img
-            className="w-[80px] transition-all hover:scale-110 md:inset-0 m-auto md:w-[100px]"
+            className="w-[80px] transition-all hover:scale-110"
             src={character.image}
             alt=""
           />
         ) : (
           <img
-            className="w-[120px] transition-all hover:scale-110"
+            className="w-[120px] transition-all hover:scale-110 "
             src={character.image}
             alt=""
           />
@@ -22,9 +22,9 @@ export const CardCharacter = ({ character }) => {
       </div>
 
       {/* Info */}
-      <div className="flex flex-col items-end w-[95%] md:justify-end md:items-center ">
+      <div className="flex flex-col items-end w-[95%]  ">
         <h3 className="text-black text-xl font-bold">{character.name}</h3>
-        <p className="text-sm text-slate-600  tracking-wider">
+        <p className="text-sm text-slate-100  tracking-wider">
           {character.race}
         </p>
       </div>

@@ -5,11 +5,11 @@ import { BottomNavigation } from "./components/BottomNavigation";
 import { useMediaQuery } from "react-responsive";
 
 function App() {
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   return (
     <>
       {isMobile ? <BottomNavigation /> : <NavBar />}
-      <main className="bg-sky-100 ">
+      <main className=" bg-slate-100  w-full ">
         <AppRouting />
       </main>
     </>
