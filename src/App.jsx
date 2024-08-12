@@ -1,9 +1,15 @@
+
+import { NavBar } from "./components/NavBar";
+import { Characters } from "./pages/Characters/Characters";
+
 function App() {
   return (
     <>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <NavBar />
+      <main className="bg-sky-100 ">
+        <Characters/>
+      </main>
+    
     </>
   );
 }
