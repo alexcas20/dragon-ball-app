@@ -1,13 +1,13 @@
 
 import { NavBar } from "./components/NavBar";
-import { Characters } from "./pages/Characters/Characters";
+import { AppRouting } from "./routes/AppRouting";
 
 function App() {
   return (
     <>
       <NavBar />
       <main className="bg-sky-100 ">
-        <Characters/>
+        <AppRouting/>
       </main>
     
     </>
