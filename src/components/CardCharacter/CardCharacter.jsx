@@ -1,13 +1,29 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
+
 
 export const CardCharacter = ({ character }) => {
+
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    console.log(character.id)
+    const route = '/character/' + character.id;
+     navigate(route);
+ 
+    }
+  
+
   return (
     <div className="flex p-4 bg-orange-500 bg-opacity-80 rounded-xl relative mb-[130px] cursor-pointer group md:mb-[150px]  ">
-      <div className="absolute top-0 -translate-y-1/4 ">
+      <div className="absolute top-0 -translate-y-1/4 " 
+      onClick={handleRedirect}>
         {character.image.includes("bulma") ||
         character.image.includes("goku") ||
         character.image.includes("vegeta") ? (
           <img
+          
             className="w-[80px] transition-all hover:scale-110"
             src={character.image}
             alt=""
