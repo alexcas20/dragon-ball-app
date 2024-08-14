@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 export const CardCharacter = ({ character }) => {
+
+
 
   const navigate = useNavigate();
 
@@ -13,6 +16,8 @@ export const CardCharacter = ({ character }) => {
      navigate(route);
  
     }
+    
+ 
   
 
   return (

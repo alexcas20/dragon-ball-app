@@ -7,7 +7,7 @@ export const BottomNavigation = () => {
           <NavLink to={"/"} className={"absolute left-1/2 -translate-x-1/2 -translate-y-12"}>
             <img
               className="w-36 "
-              src={"images/logo-dragon-ball.png"}
+              src={"images/dragon-ball-z-seeklogo.png"}
               alt="logo dragon ball"
             />
           </NavLink>
