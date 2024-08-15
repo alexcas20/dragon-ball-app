@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import logoDragonBall from '../assets/images/dragon-ball-z-seeklogo.svg'
 
 export const BottomNavigation = () => {
   return (
@@ -7,7 +8,7 @@ export const BottomNavigation = () => {
           <NavLink to={"/"} className={"absolute left-1/2 -translate-x-1/2 -translate-y-12"}>
             <img
               className="w-36 "
-              src={"images/dragon-ball-z-seeklogo.png"}
+              src={logoDragonBall}
               alt="logo dragon ball"
             />
           </NavLink>

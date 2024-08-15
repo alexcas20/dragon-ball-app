@@ -1,18 +1,19 @@
 import { NavLink } from "react-router-dom";
+import logoDragonBall from '../assets/images/dragon-ball-z-seeklogo.svg'
 
 
 export const NavBar = () => {
   return (
-    <header className="flex justify-start items-center gap-2 bg-slate-950 p-8 rounded-b-xl drop-shadow-lg ">
-      <NavLink to={"/"}>
+    <header className="flex justify-start items-center bg-slate-950 p-8  drop-shadow-lg ">
+      <NavLink className="w-[120px] -mr-[100px]" to={"/"}>
         <img
-          className="w-36 "
-          src={"images/logo-dragon-ball.png"}
+          className="w-32 "
+          src={logoDragonBall}
           alt="logo dragon ball"
         />
       </NavLink>
       <nav className="w-full">
-        <ul className="flex justify-center gap-4 text-xl text-zinc-100">
+        <ul className="flex justify-center gap-6 text-xl text-zinc-100">
           <li className=" transition-all hover:text-orange-400">
             <NavLink
               to={"characters"}

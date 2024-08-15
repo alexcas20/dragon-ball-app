@@ -23,32 +23,32 @@ export const CardCharacterDetail = ({ character }) => {
 
   return (
     <div
-      className={` p-6 text-slate-100 w-[400px] md:w-[300px] opacity-0 ${
+      className={`p-10 text-slate-100 w-[400px] opacity-0 md:flex md:flex-col md:justify-center md:items-center  ${
         animate ? "transition-all duration-500 opacity-100" : ""
       } `}
     >
       <img
-        className="w-[150px] mx-auto drop-shadow-[0_15px_55px_orange]"
+        className="w-[150px] mx-auto drop-shadow-[0_15px_55px_orange] md:w-[250px]"
         src={character.image}
         alt={character.name}
       />
       {/* INFO */}
       <div className="text-center mb-4">
-        <h2 className="text-2xl tracking-wider font-extrabold">
+        <h2 className="text-2xl tracking-wider font-extrabold md:text-6xl">
           {character?.name}
         </h2>
-        <h4 className="tracking-widest text-md">{character.race}</h4>
-        <span className="text-sm font-semibold tracking-widest">
+        <h4 className="tracking-widest text-md md:text-3xl">{character.race}</h4>
+        <span className="text-sm font-semibold tracking-widest md:text-2xl">
           {character.gender}
         </span>
-        <p className="text-md text-justify truncate overflow-hidden mt-4">
+        <p className="text-md text-justify truncate  overflow-hidden mt-4 md:text-pretty md:w-[700px] md:text-lg md:font-semibold">
           {character.description}
         </p>
       </div>
 
       {/* STATS */}
 
-      <div className="mt-4 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl">
+      <div className="mt-4 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[500px]">
         <h3 className="font-extrabold text-xl tracking-widest text-center mb-2">
           STATS
         </h3>
@@ -63,7 +63,7 @@ export const CardCharacterDetail = ({ character }) => {
       </div>
 
       {/* MORE */}
-      <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center group">
+      <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center group md:w-[500px]">
         <h2 className="text-xl font-extrabold tracking-widest">MORE</h2>
         <h3 className="font-bold text-lg p-4">Planet</h3>
         <div className="relative overflow-hidden">
@@ -86,7 +86,7 @@ export const CardCharacterDetail = ({ character }) => {
       {/* TRANSFORMATIONS */}
 
       {transforms.length > 0 ? (
-        <div className="mt-4 mb-10 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl">
+        <div className="mt-4 mb-10 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[500px]">
           <h3 className="font-extrabold text-xl tracking-widest text-center mb-2">
             TRANSFORMATIONS
           </h3>
@@ -107,12 +107,14 @@ export const CardCharacterDetail = ({ character }) => {
             </div>
           ))}
         </div>
-      ) : (
-        <>
-          <br />
-          <br />
-        </>
-      )}
+      )
+    : (
+      <>
+      <br />
+      <br />
+      </>
+    ) } 
+    
     </div>
   );
 };

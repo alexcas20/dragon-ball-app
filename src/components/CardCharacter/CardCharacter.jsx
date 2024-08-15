@@ -21,7 +21,7 @@ export const CardCharacter = ({ character }) => {
   
 
   return (
-    <div className="flex p-4 bg-orange-500 bg-opacity-80 rounded-xl relative mb-[130px] cursor-pointer group md:mb-[150px]  ">
+    <div className="flex p-4 bg-orange-500 bg-opacity-80 mb-[140px] rounded-xl relative  cursor-pointer group md:mb-[190px] md:h-[100px] md:w-[355px]   ">
       <div className="absolute top-0 -translate-y-1/4 " 
       onClick={handleRedirect}>
         {character.image.includes("bulma") ||
@@ -29,13 +29,13 @@ export const CardCharacter = ({ character }) => {
         character.image.includes("vegeta") ? (
           <img
           
-            className="w-[80px] transition-all hover:scale-110"
+            className="w-[80px] transition-all hover:scale-110 md:w-[110px]"
             src={character.image}
             alt=""
           />
         ) : (
           <img
-            className="w-[120px] transition-all hover:scale-110 "
+            className="w-[120px] transition-all hover:scale-110 md:w-[140px] "
             src={character.image}
             alt=""
           />
@@ -43,7 +43,7 @@ export const CardCharacter = ({ character }) => {
       </div>
 
       {/* Info */}
-      <div className="flex flex-col items-end w-[95%]  ">
+      <div className="flex flex-col items-end w-[95%] md:w-[100%]  ">
         <h3 className="text-black text-xl font-bold">{character.name}</h3>
         <p className="text-sm text-slate-100  tracking-wider">
           {character.race}
