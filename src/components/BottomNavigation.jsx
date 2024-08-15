@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export const BottomNavigation = () => {
   return (
 
-        <header className="fixed bottom-0 gap-4 z-10 w-[100%] h-[10px] bg-slate-900 p-8 rounded-t-xl  transition-all duration-500  group hover:h-[100px] md:relative md:flex md:justify-start md:items-center md:rounded-t-none md:rounded-b-xl">
+        <header className="fixed bottom-0 gap-4 z-10 w-[100%] h-[10px] bg-slate-950  p-8 rounded-t-xl  transition-all duration-500  group hover:h-[100px] md:relative md:flex md:justify-start md:items-center md:rounded-t-none md:rounded-b-xl">
           <NavLink to={"/"} className={"absolute left-1/2 -translate-x-1/2 -translate-y-12"}>
             <img
               className="w-36 "

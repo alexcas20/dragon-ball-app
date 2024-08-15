@@ -1,17 +1,24 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const CardCharacterDetail = ({ character }) => {
   const [animate, setAnimation] = useState(false);
-  const transforms =  character.transformations || [];
+  const transforms = character.transformations || [];
 
-  console.log(transforms)
+  const navigate = useNavigate();
 
+  console.log(transforms);
+
+  // Redireccion a planeta
+  const showPlanet = () => {
+    const route = "/planet/" + character.id;
+    navigate(route);
+  };
 
   useEffect(() => {
     setTimeout(() => {
       setAnimation(true);
     }, 500);
-  
   }, []);
 
   return (
@@ -21,7 +28,7 @@ export const CardCharacterDetail = ({ character }) => {
       } `}
     >
       <img
-        className="w-[150px] mx-auto drop-shadow-xl"
+        className="w-[150px] mx-auto drop-shadow-[0_15px_55px_orange]"
         src={character.image}
         alt={character.name}
       />
@@ -45,18 +52,18 @@ export const CardCharacterDetail = ({ character }) => {
         <h3 className="font-extrabold text-xl tracking-widest text-center mb-2">
           STATS
         </h3>
-        <div className=" flex text-slate-100 bg-orange-600  py-2 px-3 rounded-lg justify-between mb-2 ">
+        <div className=" flex text-slate-100 bg-orange-500  py-2 px-3 rounded-lg justify-between mb-2 ">
           <p className="font-bold ">BASE KI</p>
           <span className="font-semibold">{character.ki}</span>
         </div>
-        <div className=" flex bg-orange-800  py-2 px-3 rounded-lg justify-between ">
+        <div className=" flex bg-red-600  py-2 px-3 rounded-lg justify-between ">
           <p className="font-bold ">MAX KI</p>
           <span className="font-semibold">{character.maxKi}</span>
         </div>
       </div>
 
       {/* MORE */}
-      <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center  group">
+      <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center group">
         <h2 className="text-xl font-extrabold tracking-widest">MORE</h2>
         <h3 className="font-bold text-lg p-4">Planet</h3>
         <div className="relative overflow-hidden">
@@ -65,7 +72,10 @@ export const CardCharacterDetail = ({ character }) => {
             src={character.originPlanet?.image}
             alt=""
           />
-          <div className="bg-slate-700 translate-y-16 bg-opacity-60 font-bold tracking-wider rounded-b-3xl text-2xl cursor-pointer opacity-0 absolute inset-0  transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-14">
+          <div
+            onClick={showPlanet}
+            className="bg-slate-700 translate-y-16 bg-opacity-60 font-bold tracking-wider rounded-b-3xl text-2xl cursor-pointer opacity-0 absolute inset-0  transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-14"
+          >
             <span className="absolute  top-1/4 -translate-x-1/2">
               {character.originPlanet?.name}
             </span>
@@ -74,20 +84,35 @@ export const CardCharacterDetail = ({ character }) => {
       </div>
 
       {/* TRANSFORMATIONS */}
-      <div className="mt-4 mb-10 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl">
-      <h3 className="font-extrabold text-xl tracking-widest text-center mb-2">
-          TRANSFORMATIONS
-        </h3>
-        {
-          transforms.map((el) =>
-          <div className="flex flex-col items-center gap-4 flex-wrap p-2 text-slate-100" key={el.name}
-          >
-            <img className="w-[100px]" src={el.image}/>
-            <p className="font-bold text-sm bg-orange-600 bg-opacity-90 py-2 px-4 rounded-xl">{el.name}</p>
-          </div>
-          )
-        }
-      </div>
+
+      {transforms.length > 0 ? (
+        <div className="mt-4 mb-10 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl">
+          <h3 className="font-extrabold text-xl tracking-widest text-center mb-2">
+            TRANSFORMATIONS
+          </h3>
+          {transforms.map((el) => (
+            <div
+              className="flex items-center justify-between gap-4 flex-wrap p-2 text-slate-100"
+              key={el.name}
+            >
+              <img className="w-[75px]" src={el.image} />
+              <div className="flex flex-col items-end">
+                <p className="font-bold text-sm bg-orange-500 py-2 px-4 rounded-xl mb-4 w-[170px] text-center ">
+                  {el.name}
+                </p>
+                <span className="bg-red-600 opacity-95 py-1 px-3 rounded-lg text-sm">
+                  KI: {el.ki}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <>
+          <br />
+          <br />
+        </>
+      )}
     </div>
   );
 };

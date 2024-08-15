@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const NavBar = () => {
   return (
-    <header className="flex justify-start items-center gap-2 bg-slate-900 p-8 rounded-b-xl drop-shadow-lg ">
+    <header className="flex justify-start items-center gap-2 bg-slate-950 p-8 rounded-b-xl drop-shadow-lg ">
       <NavLink to={"/"}>
         <img
           className="w-36 "
