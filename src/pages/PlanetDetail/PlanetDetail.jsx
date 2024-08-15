@@ -10,7 +10,7 @@ export const PlanetDetail = () => {
   const { data } = useFetch(URL);
 
   return (
-    <section className="p-8">
+    <section >
       <CardPlanetDetail planet={data} />
     </section>
   );
