@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { CardPlanet } from "../../components/CardPlanet/CardPlanet";
 
 export const Planets = () => {
   const URL = "https://dragonball-api.com/api/planets";
@@ -8,7 +9,7 @@ export const Planets = () => {
   const getData = async () => {
     const response = await fetch(URL);
     const data = await response.json();
-    const {items, links} = data
+    const { items, links } = data;
     console.log(data);
     setData(items);
   };
@@ -18,15 +19,10 @@ export const Planets = () => {
   }, []);
 
   return (
-    <section>
-      {
-        data.map((planet) => 
-          <div key={planet.id}>
-            <img src={planet.image} alt="" />
-            <h2>{planet.name}</h2>
-          </div>
-        )
-      }
+    <section className="flex flex-col items-center gap-8 p-6 bg-slate-900 ">
+      {data.map((planet) => (
+        <CardPlanet key={planet.name} planet={planet} />
+      ))}
     </section>
-  ) 
+  );
 };
