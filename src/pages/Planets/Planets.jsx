@@ -19,7 +19,7 @@ export const Planets = () => {
   }, []);
 
   return (
-    <section className="flex flex-col items-center gap-8 p-6 bg-slate-900 ">
+    <section className="flex flex-col items-center gap-8 ">
       {data.map((planet) => (
         <CardPlanet key={planet.name} planet={planet} />
       ))}

@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       {isMobile ? <BottomNavigation /> : <NavBar />}
-      <main className=" bg-slate-100  w-full ">
+      <main className=" bg-slate-900 p-4  w-full ">
         <AppRouting />
       </main>
     </>

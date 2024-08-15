@@ -23,7 +23,7 @@ export const CardCharacterDetail = ({ character }) => {
 
   return (
     <div
-      className={`p-10 text-slate-100 w-[400px] md:w-[300px] opacity-0 ${
+      className={` p-6 text-slate-100 w-[400px] md:w-[300px] opacity-0 ${
         animate ? "transition-all duration-500 opacity-100" : ""
       } `}
     >

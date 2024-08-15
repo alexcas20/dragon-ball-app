@@ -14,7 +14,7 @@ const showPlanetDetails = () => {
   return (
     <div
     onClick={showPlanetDetails}
-    className="relative w-[360px] h-[360px] group">
+    className="relative w-[360px] h-[360px] cursor-pointer group">
       <img
         className="rounded-md drop-shadow-xl w-full h-full object-cover"
         src={planet.image}
