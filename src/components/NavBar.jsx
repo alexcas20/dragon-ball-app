@@ -13,7 +13,7 @@ export const NavBar = () => {
         />
       </NavLink>
       <nav className="w-full">
-        <ul className="flex justify-center gap-6 text-xl text-zinc-100">
+        <ul className="flex justify-center gap-6 text-slate-100 text-lg uppercase font-bold tracking-[4px]">
           <li className=" transition-all hover:text-orange-400">
             <NavLink
               to={"characters"}

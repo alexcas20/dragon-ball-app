@@ -13,7 +13,7 @@ export const BottomNavigation = () => {
             />
           </NavLink>
           <nav className="w-full opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-1">
-            <ul className="flex justify-center gap-4 text-xl text-zinc-100">
+            <ul className="flex justify-center gap-4  text-slate-100 text-md uppercase font-bold tracking-[2px]">
               <li className=" transition-all hover:text-orange-400">
                 <NavLink
                   to={"characters"}

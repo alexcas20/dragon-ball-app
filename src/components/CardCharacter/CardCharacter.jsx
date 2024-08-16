@@ -21,7 +21,7 @@ export const CardCharacter = ({ character }) => {
   
 
   return (
-    <div className="flex p-4 bg-orange-500 bg-opacity-80 mb-[140px] rounded-xl relative  cursor-pointer group md:mb-[190px] md:h-[100px] md:w-[355px]   ">
+    <div className="flex p-4 bg-orange-500 bg-opacity-80 w-[350px] mb-[140px] rounded-xl relative  cursor-pointer group md:mb-[190px] md:h-[100px] md:w-[350px]  ">
       <div className="absolute top-0 -translate-y-1/4 " 
       onClick={handleRedirect}>
         {character.image.includes("bulma") ||
@@ -44,8 +44,8 @@ export const CardCharacter = ({ character }) => {
 
       {/* Info */}
       <div className="flex flex-col items-end w-[95%] md:w-[100%]  ">
-        <h3 className="text-black text-xl font-bold">{character.name}</h3>
-        <p className="text-sm text-slate-100  tracking-wider">
+        <h3 className="text-slate-800 text-xl md:text-[14px] uppercase font-extrabold tracking-[3px]">{character.name}</h3>
+        <p className="text-slate-100 text-[10px] uppercase font-bold tracking-[2px]">
           {character.race}
         </p>
       </div>
