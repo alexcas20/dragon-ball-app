@@ -57,7 +57,7 @@ export const Characters = () => {
       }
     
     >
-      <section className="grid grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] gap-2 pt-20 md:pt-24 md:max-w-screen-lg 2xl:max-w-screen-2xl">
+      <section className="grid grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] gap-4 pt-20 md:pt-24 md:max-w-screen-lg 2xl:max-w-screen-2xl 2xl:gap-14">
         {characters.map((character) => (
           <CardCharacter key={character.id} character={character} />
         ))}
