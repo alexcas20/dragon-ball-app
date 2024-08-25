@@ -1,6 +1,9 @@
+import { CarouselCharacter } from "../CarouselCharacter";
+
 export const CardPlanetDetail = ({ planet }) => {
   // array characters
   const characters = planet.characters || [];
+
 
   return (
     <div className="text-slate-200 p-4  md:p-0 flex flex-col gap-4 md:items-center">
@@ -26,7 +29,7 @@ export const CardPlanetDetail = ({ planet }) => {
         HABITANTES
       </h2>
 
-      <div className=" rounded-lg px-6 md:flex md:flex-wrap md:justify-around ">
+      {/* <div className=" rounded-lg px-6 md:flex md:flex-wrap md:justify-around ">
         {characters.map((character, index) => (
           //  habitants card
 
@@ -46,7 +49,9 @@ export const CardPlanetDetail = ({ planet }) => {
             <div className=" font-bold text-xs opacity-0 translate-x-10 transition-all duration-500 group-hover:translate-x-2 group-hover:opacity-100"></div>
           </div>
         ))}
-      </div>
+      </div> */}
+     {/*  Carousel characters */}
+      <CarouselCharacter data={characters}/>
       <br />
       <br />
       <br />
