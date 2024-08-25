@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { CardCharacter } from "../../components/CardCharacter/CardCharacter";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Filter } from "../../components/Filter";
 
 export const Characters = () => {
   const URL = "https://dragonball-api.com/api/characters";
+
 
   const [characters, setCharacters] = useState([]);
   const [next, setNext] = useState(null);
@@ -45,6 +47,9 @@ export const Characters = () => {
   };
 
   return (
+    <>
+
+    <Filter/>
     <InfiniteScroll
       className="flex flex-wrap justify-center relative"
       dataLength={characters.length}
@@ -63,5 +68,7 @@ export const Characters = () => {
         ))}
       </section>
     </InfiniteScroll>
+    </>
+    
   );
 };
