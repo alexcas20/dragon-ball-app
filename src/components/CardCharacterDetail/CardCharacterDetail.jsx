@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export const CardCharacterDetail = ({ character }) => {
   const [animate, setAnimation] = useState(false);
   const transforms = character.transformations || [];
+  const originPlanet = character.originPlanet || null;
 
   const navigate = useNavigate();
 
@@ -11,7 +12,7 @@ export const CardCharacterDetail = ({ character }) => {
 
   // Redireccion a planeta
   const showPlanet = () => {
-    const route = "/planet/" + character.id;
+    const route = "/planet/" + originPlanet.id;
     navigate(route);
   };
 
