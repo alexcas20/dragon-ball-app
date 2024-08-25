@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+
 // const data =[
 //     {
 //       "balance": "$3,946.45",
@@ -67,18 +68,18 @@ export const CarouselCharacter = ({ data }) => {
   };
 
   return (
-    <section className="flex justify-center mt-12">
-      <div className="flex gap-6 items-center" key={data[position]?.name}>
-        <div className="flex flex-col items-center ">
-          <img className="h-[220px] object-cover" src={data[position]?.image} />
-          <p className="text-md font-extrabold tracking-[5px] py-2">
+    <section className="flex mt-12 md:mt-4 justify-center">
+      <div className="flex items-center md:w-[350px] md:justify-between group" key={data[position]?.name}>
+        <div className="flex flex-col items-center  translate-y-4 transition-all duration-700 group-hover:translate-y-1 hover:cursor-pointer">
+          <img className="h-[220px] md:h-[300px] object-cover  " src={data[position]?.image} />
+          <p className="text-md md:text-2xl font-extrabold tracking-[5px] py-2 md:py-4">
             {data[position]?.name}
           </p>
         </div>
 
         {data.length > 1 && (
           <button
-            className="bg-slate-800 rounded-md py-2 px-4 h-[40px] hover:bg-slate-400"
+            className="bg-slate-800 rounded-md py-2 px-4 h-[40px]   hover:bg-slate-700"
             onClick={handleNext}
           >
             Next
