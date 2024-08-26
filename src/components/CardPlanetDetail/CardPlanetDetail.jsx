@@ -25,7 +25,7 @@ export const CardPlanetDetail = ({ planet }) => {
 
       {/* Characters */}
 
-      <h2 className=" text-slate-100 text-xl text-center uppercase font-bold tracking-[8px] opacity-95 mt-4 -mb-8 md:mb-10 md:mt-8 md:text-3xl md:opacity-80">
+      <h2 className=" text-slate-100 text-xl text-center uppercase font-bold tracking-[8px] opacity-95 mt-4 -mb-8 md:mb-2 md:mt-8 md:text-3xl md:opacity-80">
         HABITANTES
       </h2>
 
