@@ -30,7 +30,7 @@ export const CardPlanetDetail = ({ planet }) => {
       </h2>
 
       {characters.length >= 1 ? (
-        <div className="mb-24">
+        <div className="mb-24 ">
           {/*   Carousel characters  */}
           <CarouselCharacter data={characters} />
          
