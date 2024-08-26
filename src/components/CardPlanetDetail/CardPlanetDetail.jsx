@@ -1,4 +1,5 @@
 import { CarouselCharacter } from "../CarouselCharacter";
+import { FaInfoCircle } from "react-icons/fa";
 
 export const CardPlanetDetail = ({ planet }) => {
   // array characters
@@ -36,10 +37,15 @@ export const CardPlanetDetail = ({ planet }) => {
          
         </div>
       ) : (
-        <div className="mb-14">
-          <h2 className="pt-8 text-2xl">No hay habitante que mostrar</h2>
-          <br />
-        </div>
+        <div className="bg-slate-800 p-10 rounded-lg text-center mb-48 mt-4 ">
+          <div className="flex justify-center mb-9">
+          <FaInfoCircle className="text-6xl"/>
+          </div>
+         
+        <p className="text-slate-100 text-[18px] text-center uppercase font-bold tracking-[5px] opacity-95">
+          No existen habitantes por mostrar...
+        </p>
+      </div>
         
       )}
     </div>

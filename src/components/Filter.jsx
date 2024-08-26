@@ -6,7 +6,7 @@ export const Filter = ({ changeURL }) => {
   };
 
   return (
-    <section className="pt-12 flex justify-center gap-3">
+    <section className="pt-12 flex justify-center lg:justify-end lg:mr-52 xl:mr-40  gap-3">
       <form>
         <div className="bg-white p-3 flex rounded-2xl text-lg">
           <input
