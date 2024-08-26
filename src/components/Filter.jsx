@@ -1,3 +1,5 @@
+import { FaSearch } from "react-icons/fa";
+
 export const Filter = ({ changeURL }) => {
   const handleChange = (e) => {
     changeURL(e.target.value);
@@ -5,14 +7,24 @@ export const Filter = ({ changeURL }) => {
 
   return (
     <section className="pt-12 flex justify-center gap-3">
-      <div>
-        <input
-          className="rounded-md py-1 px-2 mx-2 w-[280px]"
-          type="text"
-          placeholder="Search your favorite character..."
-          onChange={handleChange}
-        />
-      </div>
+      <form>
+        <div className="bg-white p-3 flex rounded-2xl text-lg">
+          <input
+            className="border-none outline-none flex-1 w-[300px]"
+            type="text"
+            placeholder="Search your favorite character..."
+            autoComplete="off"
+            name="pokemonName"
+            onChange={handleChange}
+          />
+          <button
+            type="button"
+            className="border-none bg-orange-500 p-2 rounded-xl shadow-lg shadow-red-400/50 cursor-pointer hover:bg-red-300 transition-colors"
+          >
+           <FaSearch />
+          </button>
+        </div>
+      </form>
     </section>
   );
 };
