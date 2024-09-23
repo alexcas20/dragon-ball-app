@@ -10,7 +10,7 @@ export const CharacterDetail = () => {
   );
 
   return (
-    <section className="flex flex-col items-center bg-slate-900  transition-all duration-700 ">
+    <section className="flex flex-col items-center bg-slate-900  transition-all duration-700">
       <CardCharacterDetail character={data} />
     </section>
   );

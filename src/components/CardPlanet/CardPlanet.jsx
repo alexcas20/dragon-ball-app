@@ -20,7 +20,7 @@ const showPlanetDetails = () => {
         src={planet.image}
         alt={planet.name}
       />
-      <div className="absolute translate-y-10 opacity-0 bottom-0 bg-slate-800 w-full h-56 bg-opacity-90 flex justify-center items-center transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-2">
+      <div className="absolute translate-y-10 opacity-0 bottom-0 bg-slate-900 w-full h-56 bg-opacity-90 flex justify-center items-center transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-2">
         <h3 className="text-slate-100 text-2xl font-extrabold tracking-widest">{planet.name}</h3>
       </div>
     </div>

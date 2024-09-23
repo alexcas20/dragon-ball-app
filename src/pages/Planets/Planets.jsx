@@ -53,9 +53,13 @@ export const Planets = () => {
     next={getMoreData}
     hasMore={hasMore}
     loader={
-      <h2 className="text-2xl text-slate-100 absolute inset-x-0 bottom-0">
-        Cargando mas personajes...
-      </h2>
+      
+      <div className=" absolute bottom-0">
+      <div className=" h-screen gap-4 text-slate-100 font-extrabold">
+        <div className="border-t-8 border-b-8 border-slate-100 rounded-full w-20 h-20 animate-spin" />
+        <span>Cargando...</span>
+      </div>
+    </div>
     }>
        <section className="grid items-center place-content-center grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] gap-6 pt-16 px-8 md:pt-24  md:max-w-screen-lg 2xl:max-w-screen-2xl overflow-y-hidden   ">
       {data.map((planet) => (

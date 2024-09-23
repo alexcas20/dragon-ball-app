@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 // const data =[
 //     {
@@ -51,6 +52,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export const CarouselCharacter = ({ data }) => {
   const [position, setPosition] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("valor position ", position);
@@ -68,7 +70,7 @@ export const CarouselCharacter = ({ data }) => {
   };
 
   return (
-    <section className="flex gap-10 mt-12 md:mt-1 justify-center">
+    <section className="flex gap-10 mt-5 mb-4 md:mt-1 justify-center">
       <div
         className="flex items-center group cursor-pointer relative "
         key={data[position]?.name}
@@ -76,6 +78,7 @@ export const CarouselCharacter = ({ data }) => {
         <div className=" translate-y-4 transition-all duration-700 group-hover:translate-y-1 hover:cursor-pointer relative">
           <div className="w-[250px] flex flex-col items-center">
             <img
+            onClick={() => navigate("/character/"+data[position]?.id)}
               className="h-[200px] md:h-[300px] object-cover "
               src={data[position]?.image}
             />
@@ -86,7 +89,7 @@ export const CarouselCharacter = ({ data }) => {
 
           {data.length > 1 && (
             <IoIosArrowForward
-              className="absolute top-1/2 transform -translate-y-1/2 left-32 md:left-40 text-[150px] md:text-[250px] text-slate-700 transition-colors hover:text-slate-400"
+              className="absolute  top-1/2 transform -translate-y-1/2 left-32 md:left-40 text-[150px] md:text-[250px] text-slate-700 transition-colors hover:text-slate-400 "
               onClick={handleNext}
             />
           )}

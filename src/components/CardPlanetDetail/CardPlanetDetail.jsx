@@ -1,9 +1,12 @@
+
 import { CarouselCharacter } from "../CarouselCharacter";
 import { FaInfoCircle } from "react-icons/fa";
 
 export const CardPlanetDetail = ({ planet }) => {
   // array characters
   const characters = planet.characters || [];
+
+ 
 
   return (
     <div className="text-slate-200 p-4  md:p-0 flex flex-col gap-4 md:items-center">
