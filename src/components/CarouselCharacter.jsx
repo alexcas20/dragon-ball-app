@@ -23,7 +23,8 @@ export const CarouselCharacter = ({ data, isLinked }) => {
         {data.map((character) => (
           <SwiperSlide key={character.name}>
            
-              <div className=" translate-y-4 transition-all duration-700 group-hover:translate-y-1 hover:cursor-pointer relative mb-10">
+           <div className="group">
+           <div className=" translate-y-4 transition-all duration-700 group-hover:translate-y-1 hover:cursor-pointer relative mb-10">
                 <div className=" flex flex-col items-center">
                   {isLinked ? 
                    <img
@@ -43,6 +44,8 @@ export const CarouselCharacter = ({ data, isLinked }) => {
                   </p>
                 </div>
               </div>
+           </div>
+              
             
           </SwiperSlide>
         ))}
