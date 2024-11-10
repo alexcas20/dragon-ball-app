@@ -50,7 +50,7 @@ export const Characters = () => {
             setNext(json.links.next);
             setHasMore(true);
           } else setHasMore(false);
-        }, 500);
+        }, 200);
 
         console.log("HAY MAS", hasMore);
       } catch (error) {
@@ -68,8 +68,8 @@ export const Characters = () => {
         next={fetchMoreData}
         hasMore={hasMore}
         loader={
-          <div className=" absolute bottom-0">
-            <div className="flex justify-center items-center h-screen gap-4 text-slate-100 font-extrabold">
+          <div className="w-full flex justify-center items-center pt-4 pb-20 ">
+            <div className="flex items-center gap-4 text-slate-100 font-extrabold">
               <div className="border-t-8 border-b-8 border-slate-100 rounded-full w-20 h-20 animate-spin" />
               <span>Cargando...</span>
             </div>
