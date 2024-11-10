@@ -33,3 +33,29 @@
     background-color: #2d3748;
   }
 }
+
+
+/* Cambia el color de los botones de navegación */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff; /* Cambia a tu color preferido */
+  background-color: #00000080; /* Fondo con opacidad */
+  border-radius: 50%; /* Forma circular */
+  width: 60px; /* Ajusta el tamaño */
+  height: 60px;
+}
+
+/* Aumenta el tamaño del icono */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 30px;
+}
+
+
+
+/* Añade efectos al hacer hover sobre los botones */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1); /* Efecto de agrandamiento */
+}
