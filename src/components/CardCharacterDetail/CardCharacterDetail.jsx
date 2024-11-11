@@ -41,14 +41,14 @@ export const CardCharacterDetail = ({ character }) => {
             <h2 className="text-center p-4 text-5xl font-extrabold tracking-widest">
               {character.name}
             </h2>
-            <p className="md:text-wrap overflow-y-auto md:p-3 max-h-40 scrollbar-thin scrollbar-thumb scrollbar-track ">
+            <p className="md:text-wrap overflow-y-auto md:p-3 max-h-40 scrollbar-thin scrollbar-thumb scrollbar-track lg:w-[380px] ">
               {character.description}
             </p>
           </div>
         </div>
 
         {/*  STATS */}
-        <div className="mt-12 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[500px]">
+        <div className="mt-12 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[100%] lg:w-[500px]">
           <h3 className="font-extrabold text-xl tracking-widest text-center mb-2">
             STATS
           </h3>
@@ -68,16 +68,16 @@ export const CardCharacterDetail = ({ character }) => {
 
       {/* MORE INFO */}
 
-      <div className="lg:w-[900px] lg:flex lg:gap-5 lg:justify-center lg:items-center lg:mt-16">
-        <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center group md:w-[600px]">
+      <div className="lg:flex lg:gap-5 mt-8 lg:h-[520px]">
+        <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center group md:w-[600px] lg:w-[500px] lg:h-[100%] lg:overflow-hidden">
           <h2 className="text-xl font-extrabold tracking-widest mb-3">
             PLANET
           </h2>
           <div className="relative overflow-hidden">
             <img
-              className="overflow-hidden"
+              className="overflow-hidden lg:object-contain"
               src={character.originPlanet?.image}
-              alt=""
+              alt={character.originPlanet}
             />
             <div
               onClick={showPlanet}
@@ -92,12 +92,14 @@ export const CardCharacterDetail = ({ character }) => {
 
         {/*  TRANSFORMATIONS  */}
         {transforms.length > 0 ? (
-          <div className="mt-6 mb-16 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[600px]">
+          <div className="mt-6 mb-16 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[600px] lg:w-[500px] lg:h-[100%]" >
             <h3 className="font-extrabold text-xl tracking-widest text-center mb">
               TRANSFORMATIONS
             </h3>
-
+            <div className="lg:pt-10">
             <CarouselCharacter data={transforms} />
+            </div>
+            
           </div>
         ) : (
           <>
