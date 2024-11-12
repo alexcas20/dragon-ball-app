@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CarouselCharacter } from "../CarouselCharacter";
+import { FaHeart } from "react-icons/fa";
+import { CharactersContext } from "../../context/CharactersContext";
 
 export const CardCharacterDetail = ({ character }) => {
   const [animate, setAnimation] = useState(false);
@@ -9,7 +11,51 @@ export const CardCharacterDetail = ({ character }) => {
 
   const navigate = useNavigate();
 
-  console.log(transforms);
+  // favs
+
+  const { favCharacters, setFavCharacters } = useContext(CharactersContext);
+
+  const [isFav, setIsFav] = useState(false);
+
+  const addFav = () => {
+    console.log("array de favoritos: ", favCharacters);
+    const characterFav = {
+      id: character.id,
+      image: character.image,
+      name: character.name,
+    };
+    if (!isFav) {
+      const characterExits = favCharacters.find(
+        (character) => character.id === characterFav.id
+      );
+      if (!characterExits) {
+        console.log("agrega");
+        console.log(characterFav);
+        setIsFav(!isFav);
+        setFavCharacters((prev) => [...prev, characterFav]);
+      }
+    } else {
+      console.log("quita");
+
+      const unFav = favCharacters.filter(
+        (character) => character.id !== characterFav.id
+      );
+      setIsFav(!isFav);
+      setFavCharacters(unFav);
+    }
+  };
+
+  // Usar useEffect para sincronizar el estado de isFav con favCharacters
+  useEffect(() => {
+    const foundFav = favCharacters.some((fav) => fav.id === character.id);
+    setIsFav(foundFav);
+  }, [favCharacters, character.id]);
+
+  useEffect(() => {
+    console.log(isFav);
+
+    localStorage.setItem("favoritos", JSON.stringify(favCharacters));
+  }, [favCharacters]);
 
   // Redireccion a planeta
   const showPlanet = () => {
@@ -28,7 +74,15 @@ export const CardCharacterDetail = ({ character }) => {
       className={`p-10 text-slate-100 w-[400px] opacity-0 md:flex md:flex-col md:justify-center md:items-center  ${
         animate ? "transition-all duration-500 opacity-100" : ""
       } `}
+      
     >
+      {/*  Btn favoritos */}
+      <div className=" w-full  md:w-[850px] pr-16 pb-10 flex justify-end">
+        <button onClick={addFav} className={` text-5xl ${isFav ? "text-red-600 " : ""}`}>
+          <FaHeart />
+        </button>
+      </div>
+
       {/*  character details */}
       <div className="md:flex md:flex-col md:items-center ">
         <div className="md:flex md:w-[600px] md:gap-5">
@@ -37,6 +91,7 @@ export const CardCharacterDetail = ({ character }) => {
             src={character.image}
             alt={character.name}
           />
+
           <div className="md:flex md:flex-col md:w-[300px] md:justify-center">
             <h2 className="text-center p-4 text-5xl font-extrabold tracking-widest">
               {character.name}
@@ -75,7 +130,7 @@ export const CardCharacterDetail = ({ character }) => {
           </h2>
           <div className="relative overflow-hidden">
             <img
-              className="overflow-hidden lg:object-contain"
+              className="overflow-hidden"
               src={character.originPlanet?.image}
               alt={character.originPlanet}
             />
@@ -92,14 +147,13 @@ export const CardCharacterDetail = ({ character }) => {
 
         {/*  TRANSFORMATIONS  */}
         {transforms.length > 0 ? (
-          <div className="mt-6 mb-16 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[600px] lg:w-[500px] lg:h-[100%]" >
+          <div className="mt-6 mb-16 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[600px] lg:w-[500px] lg:h-[100%]">
             <h3 className="font-extrabold text-xl tracking-widest text-center mb">
               TRANSFORMATIONS
             </h3>
             <div className="lg:pt-10">
-            <CarouselCharacter data={transforms} />
+              <CarouselCharacter data={transforms} />
             </div>
-            
           </div>
         ) : (
           <>
