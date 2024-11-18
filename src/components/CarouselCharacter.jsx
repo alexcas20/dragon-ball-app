@@ -39,7 +39,7 @@ export const CarouselCharacter = ({ data, isLinked }) => {
                />
                   }
                  
-                  <p className="text-md md:text-2xl font-extrabold tracking-[5px] py-2 md:py-4">
+                  <p className="text-md md:text-2xl text-slate-100 font-extrabold tracking-[5px] py-2 md:py-4">
                     {character.name}
                   </p>
                 </div>

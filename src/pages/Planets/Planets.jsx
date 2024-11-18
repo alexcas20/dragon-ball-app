@@ -58,7 +58,7 @@ export const Planets = () => {
         </div>
       }
     >
-      <section className="grid items-center place-content-center grid-cols-[repeat(auto-fit,_minmax(450px,_1fr))] gap-6 pt-16 px-8 md:pt-12  md:max-w-screen-lg 2xl:max-w-screen-2xl overflow-y-hidden   ">
+      <section className="grid items-center place-content-center grid-cols-[repeat(auto-fit,_minmax(450px,_1fr))] gap-6 pt-16 pb-10 px-8 md:pt-12  md:max-w-screen-lg 2xl:max-w-screen-2xl overflow-y-hidden   ">
         {data.map((planet) => (
           <CardPlanet key={planet.name} planet={planet} />
         ))}

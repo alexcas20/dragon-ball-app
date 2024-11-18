@@ -51,11 +51,7 @@ export const CardCharacterDetail = ({ character }) => {
     setIsFav(foundFav);
   }, [favCharacters, character.id]);
 
-  useEffect(() => {
-    console.log(isFav);
 
-    localStorage.setItem("favoritos", JSON.stringify(favCharacters));
-  }, [favCharacters]);
 
   // Redireccion a planeta
   const showPlanet = () => {
