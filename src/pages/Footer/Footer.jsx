@@ -8,7 +8,7 @@ import { useMediaQuery } from "react-responsive";
 export const Footer = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   return (
-    <footer className="bg-slate-950 p-8 pb-32 md:pb-12 w-full">
+    <footer className="bg-slate-950 p-2 pb-32 md:pb-12 w-full">
       <div className="flex justify-center gap-8  text-slate-100 items-end m-5">
         <hr className=" w-1/2 border-t-1 border-slate-400" />
 
@@ -36,7 +36,7 @@ export const Footer = () => {
       <div className="cursor-pointer">
         <NavLink to={"https://web.dragonball-api.com/"} target="_blank">
           <img
-            className="w-[20%] mx-auto"
+            className="w-[20%] md:w-[10%] mx-auto"
             src={logoDragonBall}
             alt="Logo dragon ball"
           />
