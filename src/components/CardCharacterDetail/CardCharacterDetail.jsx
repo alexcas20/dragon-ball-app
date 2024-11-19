@@ -18,7 +18,7 @@ export const CardCharacterDetail = ({ character }) => {
   const [isFav, setIsFav] = useState(false);
 
   const addFav = () => {
-    console.log("array de favoritos: ", favCharacters);
+   
     const characterFav = {
       id: character.id,
       image: character.image,
@@ -47,6 +47,7 @@ export const CardCharacterDetail = ({ character }) => {
 
   // Usar useEffect para sincronizar el estado de isFav con favCharacters
   useEffect(() => {
+    console.log("array de favoritos: ", favCharacters);
     const foundFav = favCharacters.some((fav) => fav.id === character.id);
     setIsFav(foundFav);
   }, [favCharacters, character.id]);
