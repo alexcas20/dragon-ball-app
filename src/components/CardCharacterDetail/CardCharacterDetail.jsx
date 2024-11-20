@@ -141,12 +141,12 @@ export const CardCharacterDetail = ({ character }) => {
 
       {/* MORE INFO */}
 
-      <div className="lg:flex lg:gap-5 mt-8 lg:h-[520px]">
-        <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center group md:w-[500px] lg:w-[700px]  lg:h-[90%] lg:overflow-hidden">
-          <h2 className="text-xl font-extrabold tracking-widest mb-3">
+      <div className="lg:flex lg:gap-5 mt-8 lg:h-[500px]">
+        <div className="bg-slate-800 opacity-95 mt-6  rounded-xl text-center group md:w-[500px]  lg:h-[90%] lg:overflow-hidden">
+          <h2 className="text-xl font-extrabold tracking-widest mb-3 pt-4">
             PLANET
           </h2>
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden aspect-[4/3] w-[500px] h-[520px]">
             <img
               className="overflow-hidden"
               src={character.originPlanet?.image}

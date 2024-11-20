@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { CarouselCharacter } from "../CarouselCharacter";
 import { FaInfoCircle } from "react-icons/fa";
 
@@ -5,8 +6,20 @@ export const CardPlanetDetail = ({ planet }) => {
   // array characters
   const characters = planet.characters || [];
 
+  // animacion pagina
+  const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    setAnimate(true); // Activar la animación al montar el componente
+  }, []);
+
   return (
-    <div className="text-slate-200 p-4  md:p-0 flex flex-col gap-4 md:items-center ">
+    <div
+      className={`pageDetailPlanet ${
+        animate
+          ? "animate text-slate-200 p-4  md:p-0 flex flex-col gap-4 md:items-center"
+          : ""
+      }`}
+    >
       <img
         className="rounded-lg md:rounded-none md:h-[300px] md:w-full md:object-cover md:drop-shadow-xl "
         src={planet.image}

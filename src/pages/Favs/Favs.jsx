@@ -38,7 +38,7 @@ export const Favs = () => {
 
           {/*  Delete All Favs button */}
           <div
-            className="flex justify-center md:justify-end items-center mt-3 w-[100%] md:w-[70%] lg:[50%] text-orange-500 cursor-pointer p-2 gap-3 transition-all group"
+            className="flex justify-center md:justify-end items-center mt-3 w-[100%] md:w-[70%] lg:w-[50%] text-orange-500 cursor-pointer p-2 gap-3 transition-all group"
             onClick={deleteAllFavs}
           >
             <FaHeartCircleXmark className="text-2xl group-hover:scale-125" />
