@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 export const Filter = ({ changeURL }) => {
@@ -5,8 +6,20 @@ export const Filter = ({ changeURL }) => {
     changeURL(e.target.value);
   };
 
+  // animacion pagina
+  const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    setAnimate(true); // Activar la animación al montar el componente
+  }, []);
+
   return (
-    <section className="pt-12 flex justify-center lg:justify-end lg:mr-52 xl:mr-40  gap-3">
+    <section
+      className={`pageFilter ${
+        animate
+          ? "animate pt-12 flex justify-center lg:justify-end lg:mr-52 xl:mr-40  gap-3"
+          : ""
+      }`}
+    >
       <form>
         <div className="bg-white p-3 flex rounded-2xl text-lg">
           <input
@@ -21,7 +34,7 @@ export const Filter = ({ changeURL }) => {
             type="button"
             className="border-none bg-orange-500 p-2 rounded-xl shadow-lg shadow-red-400/50 cursor-pointer hover:bg-red-300 transition-colors"
           >
-           <FaSearch />
+            <FaSearch />
           </button>
         </div>
       </form>

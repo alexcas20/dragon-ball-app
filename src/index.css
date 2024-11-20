@@ -63,3 +63,26 @@ body, html {
   background-color: rgba(0, 0, 0, 0.7);
   transform: scale(1.1); /* Efecto de agrandamiento */
 }
+
+/* Animacion entrada paginas */
+.page {
+  opacity: 0;
+  transform: translateY(150px);
+  transition: opacity .5s ease, transform 1.5s ease;
+}
+.page.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pageFilter{
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: opacity .5s ease, transform 1s ease;
+}
+
+.pageFilter.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+

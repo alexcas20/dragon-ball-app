@@ -9,14 +9,11 @@ export const Planets = () => {
   const [next, setNext] = useState(null);
   const [hasMore, setHasMore] = useState(true);
 
-  // const getData = async () => {
-  //   const response = await fetch(URL);
-  //   const data = await response.json();
-  //   const { items, links } = data;
-  //   console.log(data);
-  //   setNext(links.next);
-  //   setData(items);
-  // };
+  // animacion pagina
+  const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    setAnimate(true); // Activar la animación al montar el componente
+  }, []);
 
   const getMoreData = async () => {
     const response = await fetch(next);
@@ -45,7 +42,9 @@ export const Planets = () => {
 
   return (
     <InfiniteScroll
-      className="flex flex-wrap justify-center relative"
+      className={`page ${
+        animate ? "animate flex flex-wrap justify-center relative" : ""
+      }`}
       dataLength={data?.length}
       next={getMoreData}
       hasMore={hasMore}

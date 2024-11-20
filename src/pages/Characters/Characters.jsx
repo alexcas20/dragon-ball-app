@@ -15,6 +15,12 @@ export const Characters = () => {
     setQuery(query);
   };
 
+  // animacion pagina
+  const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    setAnimate(true); // Activar la animación al montar el componente
+  }, []);
+
   // infinite scroll
 
   useEffect(() => {
@@ -60,7 +66,7 @@ export const Characters = () => {
   };
 
   return (
-    <>
+    <section className={`page ${animate ? "animate" : ""}`}>
       <Filter changeURL={changeURL} />
       <InfiniteScroll
         className="flex flex-wrap justify-center relative"
@@ -82,6 +88,6 @@ export const Characters = () => {
           ))}
         </section>
       </InfiniteScroll>
-    </>
+    </section>
   );
 };
