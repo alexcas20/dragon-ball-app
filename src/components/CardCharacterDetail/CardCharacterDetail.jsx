@@ -1,8 +1,10 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CarouselCharacter } from "../CarouselCharacter";
-import { FaHeart } from "react-icons/fa";
 import { CharactersContext } from "../../context/CharactersContext";
+
+import { FaHeartCirclePlus } from "react-icons/fa6";
+import { FaHeartCircleCheck } from "react-icons/fa6";
 
 export const CardCharacterDetail = ({ character }) => {
   const [animate, setAnimation] = useState(false);
@@ -69,32 +71,50 @@ export const CardCharacterDetail = ({ character }) => {
         animate ? "transition-all duration-500 opacity-100" : ""
       } `}
     >
-      {/*  Btn favoritos */}
-      <div className=" w-full  md:w-[850px] pr-16 pb-10 flex justify-end">
-        <button
-          onClick={addFav}
-          className={` text-5xl ${isFav ? "text-red-600 " : ""}`}
-        >
-          <FaHeart />
-        </button>
-      </div>
-
       {/*  character details */}
-      <div className="md:flex md:flex-col md:items-center ">
-        <div className="md:flex md:w-[600px] md:gap-5">
+
+      <div className="md:flex-col md:items-center ">
+        <div className=" md:flex md:w-[500px] md:gap-5">
           <img
             className="h-[360px] mx-auto md:h-[550px] object-cover drop-shadow-[0_15px_55px_orange]"
             src={character.image}
             alt={character.name}
           />
 
-          <div className="md:flex md:flex-col md:w-[300px] md:justify-center">
+          <div className="md:flex md:flex-col md:justify-center md:w-[300px] lg:justify-center">
             <h2 className="text-center p-4 text-5xl font-extrabold tracking-widest">
               {character.name}
             </h2>
             <p className="md:text-wrap overflow-y-auto md:p-3 max-h-40 scrollbar-thin scrollbar-thumb scrollbar-track lg:w-[380px] ">
               {character.description}
             </p>
+
+            {/*  Btn favoritos */}
+            {isFav ? (
+              <div className="pt-8 flex justify-center  items-center lg:justify-end gap-2 group transition-all ">
+                <button
+                  onClick={addFav}
+                  className={` text-3xl ${isFav ? "text-red-500 " : ""}`}
+                >
+                  <FaHeartCircleCheck className="group-hover:text-red-500 group-hover:-translate-y-1" />
+                </button>
+                <span className=" text-red-500  font-bold group-hover:text-red-500 group-hover:-translate-y-1 ">
+                  Added
+                </span>
+              </div>
+            ) : (
+              <div className="pt-8 flex justify-center items-center lg:justify-end gap-2 group transition-all ">
+                <button
+                  onClick={addFav}
+                  className={` text-3xl ${isFav ? "text-red-500 " : ""}`}
+                >
+                  <FaHeartCirclePlus className="group-hover:text-red-500 group-hover:-translate-y-1" />
+                </button>
+                <span className=" font-bold group-hover:text-red-500 group-hover:-translate-y-1">
+                  Add to Favs
+                </span>
+              </div>
+            )}
           </div>
         </div>
 
@@ -116,11 +136,13 @@ export const CardCharacterDetail = ({ character }) => {
           </div>
         </div>
       </div>
+     {/*  End character details */}
+
 
       {/* MORE INFO */}
 
       <div className="lg:flex lg:gap-5 mt-8 lg:h-[520px]">
-        <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center group md:w-[600px] lg:w-[500px] lg:h-[100%] lg:overflow-hidden">
+        <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center group md:w-[500px] lg:w-[700px]  lg:h-[90%] lg:overflow-hidden">
           <h2 className="text-xl font-extrabold tracking-widest mb-3">
             PLANET
           </h2>
@@ -143,7 +165,7 @@ export const CardCharacterDetail = ({ character }) => {
 
         {/*  TRANSFORMATIONS  */}
         {transforms.length > 0 ? (
-          <div className="mt-6 mb-16 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[600px] lg:w-[500px] lg:h-[100%]">
+          <div className="mt-6 mb-16 text-slate-200  bg-slate-800 opacity-95 p-4 rounded-xl md:w-[500px] lg:h-[90%]">
             <h3 className="font-extrabold text-xl tracking-widest text-center mb">
               TRANSFORMATIONS
             </h3>
