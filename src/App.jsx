@@ -13,11 +13,26 @@ function App() {
       {isMobile ? <BottomNavigation /> : <NavBar />}
 
       <div className="flex flex-col min-h-screen">
-        <ScrollToTop
-          smooth
-          style={{ backgroundColor: "#ff8000", padding: "0 7px" }}
-          component={<FaChevronUp size={25} color="#ffe" />}
-        />
+        {isMobile ? (
+          <ScrollToTop
+            smooth
+            style={{
+              backgroundColor: "#ff8000",
+              padding: "0 7px",
+              position: "fixed",
+              bottom: "80px",
+              right: "12px",
+            }}
+            component={<FaChevronUp size={25} color="#ffe" />}
+          />
+        ) : (
+          <ScrollToTop
+            smooth
+            style={{ backgroundColor: "#ff8000", padding: "0 7px" }}
+            component={<FaChevronUp size={25} color="#ffe" />}
+          />
+        )}
+
         <main className="flex-grow bg-slate-900 w-full">
           <AppRouting />
         </main>
