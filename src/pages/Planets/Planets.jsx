@@ -51,8 +51,12 @@ export const Planets = () => {
       loader={
         <div className="w-full flex justify-center items-center pt-4 pb-20">
           <div className="flex items-center gap-4 text-slate-100 font-extrabold">
-            <div className="border-t-8 border-b-8 border-slate-100 rounded-full w-20 h-20 animate-spin" />
-            <span>Cargando...</span>
+            {/*  From Uiverse.io by yohohopizza  */}
+            <div class="flex flex-row gap-2">
+              <div class="w-4 h-4 rounded-full bg-red-500 animate-bounce"></div>
+              <div class="w-4 h-4 rounded-full bg-red-500 animate-bounce [animation-delay:-.3s]"></div>
+              <div class="w-4 h-4 rounded-full bg-red-500 animate-bounce [animation-delay:-.5s]"></div>
+            </div>
           </div>
         </div>
       }
