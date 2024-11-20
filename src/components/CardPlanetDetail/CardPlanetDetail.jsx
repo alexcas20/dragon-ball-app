@@ -1,12 +1,9 @@
-
 import { CarouselCharacter } from "../CarouselCharacter";
 import { FaInfoCircle } from "react-icons/fa";
 
 export const CardPlanetDetail = ({ planet }) => {
   // array characters
   const characters = planet.characters || [];
-
- 
 
   return (
     <div className="text-slate-200 p-4  md:p-0 flex flex-col gap-4 md:items-center ">
@@ -36,20 +33,22 @@ export const CardPlanetDetail = ({ planet }) => {
       {characters.length >= 1 ? (
         <div className="mb-24 md:w-[500px] ">
           {/*   Carousel characters  */}
-          <CarouselCharacter data={characters} isLinked={true} />
-         
+          <CarouselCharacter
+            data={characters}
+            isLinked={true}
+            actions={false}
+          />
         </div>
       ) : (
         <div className="bg-slate-800 p-10 rounded-lg text-center mb-48 mt-4 ">
           <div className="flex justify-center mb-9">
-          <FaInfoCircle className="text-6xl"/>
+            <FaInfoCircle className="text-6xl" />
           </div>
-         
-        <p className="text-slate-100 text-[18px] text-center uppercase font-bold tracking-[5px] opacity-95">
-          No existen habitantes por mostrar...
-        </p>
-      </div>
-        
+
+          <p className="text-slate-100 text-[18px] text-center uppercase font-bold tracking-[5px] opacity-95">
+            No existen habitantes por mostrar...
+          </p>
+        </div>
       )}
     </div>
   );

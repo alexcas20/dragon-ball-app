@@ -18,7 +18,6 @@ export const CardCharacterDetail = ({ character }) => {
   const [isFav, setIsFav] = useState(false);
 
   const addFav = () => {
-   
     const characterFav = {
       id: character.id,
       image: character.image,
@@ -52,8 +51,6 @@ export const CardCharacterDetail = ({ character }) => {
     setIsFav(foundFav);
   }, [favCharacters, character.id]);
 
-
-
   // Redireccion a planeta
   const showPlanet = () => {
     const route = "/planet/" + originPlanet.id;
@@ -71,11 +68,13 @@ export const CardCharacterDetail = ({ character }) => {
       className={`p-10 text-slate-100 w-[400px] opacity-0 md:flex md:flex-col md:justify-center md:items-center  ${
         animate ? "transition-all duration-500 opacity-100" : ""
       } `}
-      
     >
       {/*  Btn favoritos */}
       <div className=" w-full  md:w-[850px] pr-16 pb-10 flex justify-end">
-        <button onClick={addFav} className={` text-5xl ${isFav ? "text-red-600 " : ""}`}>
+        <button
+          onClick={addFav}
+          className={` text-5xl ${isFav ? "text-red-600 " : ""}`}
+        >
           <FaHeart />
         </button>
       </div>
@@ -149,7 +148,11 @@ export const CardCharacterDetail = ({ character }) => {
               TRANSFORMATIONS
             </h3>
             <div className="lg:pt-10">
-              <CarouselCharacter data={transforms} />
+              <CarouselCharacter
+                data={transforms}
+                isLinked={false}
+                actions={false}
+              />
             </div>
           </div>
         ) : (

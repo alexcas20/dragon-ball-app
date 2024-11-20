@@ -1,39 +1,56 @@
 import { useEffect, useState } from "react";
-import { useFetch } from "../hooks/useFetch"
-import { CharactersContext } from "./CharactersContext"
+import { useFetch } from "../hooks/useFetch";
+import { CharactersContext } from "./CharactersContext";
 
+export const CharacterProvider = ({ children }) => {
+  const [query, setQuery] = useState("");
+  // fav characters
+  const [favCharacters, setFavCharacters] = useState(() => {
+    const savedFavorites = localStorage.getItem("favoritos");
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
 
-export const CharacterProvider = ({children}) => {
+  const deleteAllFavs = () => {
+    localStorage.removeItem("favoritos");
+    setFavCharacters([]);
+  };
 
-    const [query, setQuery] = useState("");
-    // fav characters
-    const [favCharacters,setFavCharacters]= useState(() => {
-     
-      const savedFavorites = localStorage.getItem('favoritos');
-      return savedFavorites ? JSON.parse(savedFavorites) : [];
-    });
+  const deleteFav = (characterId) => {
+    console.log(characterId);
 
-    const deleteAllFavs = () => {
-      localStorage.removeItem("favoritos");
-      setFavCharacters([])
-    }
+    const delCharacter = favCharacters.find(
+      (character) => character.id === characterId
+    );
 
-    const deleteFav = (algo) => {
-      /* setFavCharacters((prev) => prev.filter(fav => fav.id != id)) */
-      console.log(algo)
-    }
+    setFavCharacters((favs) =>
+      favs.filter((character) => character.id != characterId)
+    );
 
-    useEffect(() => {
-      localStorage.setItem('favoritos', JSON.stringify(favCharacters));
-    }, [favCharacters]);
+    console.log("Se elimino a: ", delCharacter.name);
+  };
 
-    const URL = `https://dragonball-api.com/api/characters?name=${query}`;
-    const { data } = useFetch(URL);
-    const {items, links} = data;
+  useEffect(() => {
+    localStorage.setItem("favoritos", JSON.stringify(favCharacters));
+  }, [favCharacters]);
+
+  /* const URL = `https://dragonball-api.com/api/characters?name=${query}`;
+  const { data } = useFetch(URL);
+  const { items, links } = data; */
 
   return (
-   <CharactersContext.Provider value={{items, links, query, setQuery, favCharacters, setFavCharacters, deleteAllFavs, deleteFav}}>
-    {children}
-   </CharactersContext.Provider>
-  )
-}
+    <CharactersContext.Provider
+      value={{
+        /* items,
+        links,
+        query,
+        setQuery, */
+        favCharacters,
+        setFavCharacters,
+        deleteAllFavs,
+        deleteFav,
+      }}
+    >
+      {children}
+    </CharactersContext.Provider>
+  );
+};
