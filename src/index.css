@@ -118,12 +118,10 @@ body, html {
 /* Estilos personalizados para la notificación en el centro de la pantalla */
 .custom-toastMobile {
   position: fixed !important;
-  top: 50% !important;
+  top: 500px !important;
   left: 50% !important;
-  transform: translate(-50%, -50%) !important; /* Centra el toast */
   z-index: 9999; /* Asegura que el toast aparezca encima de otros elementos */
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: #1e293b ;
   color: white;
   border-radius: 8px;
   text-align: center;

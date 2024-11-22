@@ -6,6 +6,7 @@ import { CharactersContext } from "../../context/CharactersContext";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 import { FaHeartCircleCheck } from "react-icons/fa6";
 import { toast, ToastContainer } from "react-toastify";
+import { useMediaQuery } from "react-responsive";
 
 export const CardCharacterDetail = ({ character }) => {
   const [animate, setAnimation] = useState(false);
@@ -15,11 +16,18 @@ export const CardCharacterDetail = ({ character }) => {
   const navigate = useNavigate();
 
   /* notification */
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const succesNot = () => {
+
+    isMobile ? 
     toast.success("Character was add to favorites", {
+      className: "custom-toastMobile",
+      position: "top-right",
+    })
+    :  toast.success("Character was add to favorites", {
       className: "custom-toast",
       position: "top-right",
-    });
+    })
   };
 
   // favs
