@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import { useFetch } from "../hooks/useFetch";
 import { CharactersContext } from "./CharactersContext";
+
+import "react-toastify/dist/ReactToastify.css";
+import useToastActions from "../helpers/useToastActions";
+import { toast } from "react-toastify";
 
 export const CharacterProvider = ({ children }) => {
   const [query, setQuery] = useState("");
@@ -10,23 +13,39 @@ export const CharacterProvider = ({ children }) => {
     return savedFavorites ? JSON.parse(savedFavorites) : [];
   });
 
+  // Notification
+  const { showConfirmation } = useToastActions();
+
   const deleteAllFavs = () => {
-    localStorage.removeItem("favoritos");
-    setFavCharacters([]);
+    showConfirmation({
+      title: "Do you want to delete all characters",
+      onConfirm: () => {
+        localStorage.removeItem("favoritos");
+        setFavCharacters([]);
+        toast.success("All characters were deleted!", {
+          position: "top-right",
+          className: "custom-toast"
+        });
+      },
+      onCancel: () => {
+        toast.info("Deletion canceled.", { position: "top-right", className: "custom-toast" });
+      },
+    });
   };
 
   const deleteFav = (characterId) => {
-    console.log(characterId);
-
-    const delCharacter = favCharacters.find(
-      (character) => character.id === characterId
-    );
-
-    setFavCharacters((favs) =>
-      favs.filter((character) => character.id != characterId)
-    );
-
-    console.log("Se elimino a: ", delCharacter.name);
+    showConfirmation({
+      title: "Do you want to delete this character?",
+      onConfirm: () => {
+        setFavCharacters((favs) =>
+          favs.filter((character) => character.id !== characterId)
+        );
+        toast.success("Character was deleted!", { position: "top-right", className: "custom-toast" });
+      },
+      onCancel: () => {
+        toast.info("Action canceled.", { position: "top-right", className: "custom-toast" });
+      },
+    });
   };
 
   useEffect(() => {

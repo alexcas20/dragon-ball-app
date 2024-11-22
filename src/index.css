@@ -108,3 +108,24 @@ body, html {
   transform: translateY(0);
 }
 
+/* Toast */
+.custom-toast {
+  background-color: #1e293b !important; /* Fondo oscuro */
+  color: #fff !important;              /* Texto blanco */
+  border-radius: 10px !important;      /* Bordes redondeados */
+}
+
+/* Estilos personalizados para la notificación en el centro de la pantalla */
+.custom-toastMobile {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important; /* Centra el toast */
+  z-index: 9999; /* Asegura que el toast aparezca encima de otros elementos */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+

@@ -3,6 +3,7 @@ import { CarouselCharacter } from "../../components/CarouselCharacter";
 import { CharactersContext } from "../../context/CharactersContext";
 
 import { FaHeartCircleXmark } from "react-icons/fa6";
+import { ToastContainer } from "react-toastify";
 
 export const Favs = () => {
   const { favCharacters, deleteAllFavs } = useContext(CharactersContext);
@@ -54,6 +55,7 @@ export const Favs = () => {
           </h2>
         </div>
       )}
+      <ToastContainer />
     </section>
   );
 };

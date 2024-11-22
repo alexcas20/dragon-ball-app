@@ -5,6 +5,7 @@ import { CharactersContext } from "../../context/CharactersContext";
 
 import { FaHeartCirclePlus } from "react-icons/fa6";
 import { FaHeartCircleCheck } from "react-icons/fa6";
+import { toast, ToastContainer } from "react-toastify";
 
 export const CardCharacterDetail = ({ character }) => {
   const [animate, setAnimation] = useState(false);
@@ -12,6 +13,14 @@ export const CardCharacterDetail = ({ character }) => {
   const originPlanet = character.originPlanet || null;
 
   const navigate = useNavigate();
+
+  /* notification */
+  const succesNot = () => {
+    toast.success("Character was added to favorites", {
+      className: "custom-toast",
+      position: "top-right",
+    });
+  };
 
   // favs
 
@@ -31,6 +40,7 @@ export const CardCharacterDetail = ({ character }) => {
       );
       if (!characterExits) {
         console.log("agrega");
+        succesNot();
         console.log(characterFav);
         setIsFav(!isFav);
         setFavCharacters((prev) => [...prev, characterFav]);
@@ -67,10 +77,13 @@ export const CardCharacterDetail = ({ character }) => {
 
   return (
     <div
+    
       className={`p-10 text-slate-100 w-[400px] opacity-0 md:flex md:flex-col md:justify-center md:items-center  ${
         animate ? "transition-all duration-500 opacity-100" : ""
       } `}
     >
+
+      <ToastContainer/>
       {/*  character details */}
 
       <div className="md:flex-col md:items-center ">
@@ -136,17 +149,16 @@ export const CardCharacterDetail = ({ character }) => {
           </div>
         </div>
       </div>
-     {/*  End character details */}
-
+      {/*  End character details */}
 
       {/* MORE INFO */}
 
-      <div className="lg:flex lg:gap-5 mt-8 lg:h-[500px]">
-        <div className="bg-slate-800 opacity-95 mt-6  rounded-xl text-center group md:w-[500px]  lg:h-[90%] lg:overflow-hidden">
-          <h2 className="text-xl font-extrabold tracking-widest mb-3 pt-4">
+      <div className="lg:flex lg:gap-5 mt-8 lg:h-[520px]">
+        <div className="bg-slate-800 opacity-95 mt-6 p-4 rounded-xl text-center group md:w-[500px] lg:w-[650px] lg:h-[90%] lg:overflow-hidden">
+          <h2 className="text-xl font-extrabold tracking-widest mb-3">
             PLANET
           </h2>
-          <div className="relative overflow-hidden aspect-[4/3] w-[500px] h-[520px]">
+          <div className="relative overflow-hidden">
             <img
               className="overflow-hidden"
               src={character.originPlanet?.image}

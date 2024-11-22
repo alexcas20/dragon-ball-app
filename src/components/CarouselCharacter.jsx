@@ -10,12 +10,14 @@ import { useContext } from "react";
 import { CharactersContext } from "../context/CharactersContext";
 import { FaHeartCircleMinus } from "react-icons/fa6";
 
+
 export const CarouselCharacter = ({ data, isLinked, actions }) => {
   const navigate = useNavigate();
 
   // Favs Buttons
   const { deleteFav } = useContext(CharactersContext);
 
+ 
   return (
     <section className="flex gap-10 mt-5 mb-4 md:mt-1 justify-center">
       <Swiper
