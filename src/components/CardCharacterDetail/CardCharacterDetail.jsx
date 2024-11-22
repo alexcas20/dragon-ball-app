@@ -16,7 +16,7 @@ export const CardCharacterDetail = ({ character }) => {
 
   /* notification */
   const succesNot = () => {
-    toast.success("Character was added to favorites", {
+    toast.success("Character was add to favorites", {
       className: "custom-toast",
       position: "top-right",
     });
@@ -83,7 +83,7 @@ export const CardCharacterDetail = ({ character }) => {
       } `}
     >
 
-      <ToastContainer/>
+    
       {/*  character details */}
 
       <div className="md:flex-col md:items-center ">
@@ -129,6 +129,7 @@ export const CardCharacterDetail = ({ character }) => {
               </div>
             )}
           </div>
+          <ToastContainer/>
         </div>
 
         {/*  STATS */}
