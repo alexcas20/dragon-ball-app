@@ -18,16 +18,15 @@ export const CardCharacterDetail = ({ character }) => {
   /* notification */
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const succesNot = () => {
-
-    isMobile ? 
-    toast.success("Character was add to favorites", {
-      className: "custom-toastMobile",
-      position: "top-right",
-    })
-    :  toast.success("Character was add to favorites", {
-      className: "custom-toast",
-      position: "top-right",
-    })
+    isMobile
+      ? toast.success("Character was add to favorites", {
+          className: "custom-toastMobile",
+          position: "top-right",
+        })
+      : toast.success("Character was add to favorites", {
+          className: "custom-toast",
+          position: "top-right",
+        });
   };
 
   // favs
@@ -85,13 +84,10 @@ export const CardCharacterDetail = ({ character }) => {
 
   return (
     <div
-    
       className={`p-10 text-slate-100 w-[400px] opacity-0 md:flex md:flex-col md:justify-center md:items-center  ${
         animate ? "transition-all duration-500 opacity-100" : ""
       } `}
     >
-
-    
       {/*  character details */}
 
       <div className="md:flex-col md:items-center ">
@@ -137,7 +133,7 @@ export const CardCharacterDetail = ({ character }) => {
               </div>
             )}
           </div>
-          <ToastContainer/>
+          <ToastContainer />
         </div>
 
         {/*  STATS */}
