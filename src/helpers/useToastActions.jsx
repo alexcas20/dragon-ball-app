@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
 const useToastActions = () => {
-  const showConfirmation = ({ title, onConfirm, onCancel }) => {
+  const showConfirmation = ({ title, onConfirm, onCancel, className }) => {
     const confirmToast = ({ closeToast }) => (
       <div>
         <p>{title}</p>
@@ -33,7 +33,7 @@ const useToastActions = () => {
       autoClose: false,
       closeOnClick: false,
       draggable: false,
-      className: "custom-toast",
+      className,
     });
   };
 

@@ -8,6 +8,8 @@ import { ToastContainer } from "react-toastify";
 export const Favs = () => {
   const { favCharacters, deleteAllFavs } = useContext(CharactersContext);
 
+   
+
   // animacion pagina
   const [animate, setAnimate] = useState(false);
   useEffect(() => {
